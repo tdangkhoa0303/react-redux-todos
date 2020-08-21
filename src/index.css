@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Chilanka&family=Poppins&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: #333333;
+}
+
+input {
+    border: none;
+    outline: none;
+    font-size: 1em;
+    line-height: 2em;
+    width: 100%;
+}
+
+button {
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 1px solid #f5f5f5;
+    background-color: transparent;
+    outline: none;
+    transition: all 0.2s ease;
+    margin: 0px 5px;
+}
+
+button:hover {
+    border-color: #0197f6;
+}
+
+svg {
+    margin-right: 10px;
+}
