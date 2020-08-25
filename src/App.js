@@ -1,5 +1,8 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
+
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import Header from "./containers/Header";
 import VisibleTodoList from "./containers/VisibleTodoList";
@@ -13,6 +16,7 @@ function App() {
         <Header />
         <VisibleTodoList />
         <Footer />
+        <ToastContainer autoClose={3000} />
       </div>
     </div>
   );

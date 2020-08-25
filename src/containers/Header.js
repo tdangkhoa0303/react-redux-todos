@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+
 import { addTodo, completeAllTodo } from "../actions";
+
 import DoneAllIcon from "@material-ui/icons/DoneAll";
 
 const Header = ({ dispatch }) => {
@@ -16,9 +19,14 @@ const Header = ({ dispatch }) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(input);
             if (!input || !input.value.trim()) return;
-            dispatch(addTodo(input.value.trim()));
+            dispatch(
+              addTodo({
+                text: input.value.trim(),
+                id: uuidv4(),
+                completed: false,
+              })
+            );
             input.value = "";
           }}
         >
