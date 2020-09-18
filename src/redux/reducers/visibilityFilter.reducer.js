@@ -1,5 +1,5 @@
 import { VisibilityFilters } from "../actions";
-import * as types from "../actions/actionTypes";
+import * as types from "../../contants/actionTypes";
 
 export default (state = VisibilityFilters.SHOW_ALL, action) => {
   switch (action.type) {

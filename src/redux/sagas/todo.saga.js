@@ -4,18 +4,20 @@ import {
   addTodoAPI,
   toggleTodoAPI,
   completeAllTodoAPI,
-} from "../helpers/api";
+} from "../../helpers/api";
 import { toast } from "react-toastify";
 import { getTodosSuccess, getTodosFailed } from "../actions";
-import * as types from "../actions/actionTypes";
+import * as types from "../../contants/actionTypes";
 
 function* fetchTodoSaga() {
   try {
     const {
-      data: { data },
+      data: {
+        data: { todos },
+      },
     } = yield call(getTodoAPI);
     yield toast.success("Fetching data successfully!");
-    yield put(getTodosSuccess(data));
+    yield put(getTodosSuccess(todos));
   } catch (err) {
     yield toast.error("Fetching data failed");
     yield put(getTodosFailed(err));

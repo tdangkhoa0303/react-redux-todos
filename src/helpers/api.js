@@ -1,19 +1,40 @@
 import axios from "axios";
 
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  timeout: 3000,
+  withCredentials: false,
+});
+
 export const getTodoAPI = () => {
-  return axios.get("http://localhost:1402/api/todos");
+  return api.get(`/todos`);
 };
 
 export const addTodoAPI = ({ text, id, completed }) => {
-  return axios.post("http://localhost:1402/api/todos", { text, id, completed });
+  return api.post(`/todos`, { text, id, completed });
 };
 
 export const toggleTodoAPI = (id, completed) => {
-  return axios.post(`http://localhost:1402/api/todos/${id}`, {
+  return api.post(`/todos/${id}`, {
     completed,
   });
 };
 
 export const completeAllTodoAPI = () => {
-  return axios.get("http://localhost:1402/api/todos/complete");
+  return api.get(`/todos/complete`);
+};
+
+export const requestLogin = (email, password) => {
+  return api.post(`/auth/login`, {
+    email,
+    password,
+  });
+};
+
+export const requestTokenRefresh = () => {
+  return api.post(`/auth/refreshToken`);
+};
+
+export const setToken = (token) => {
+  api.defaults.headers.common["x-access-token"] = token;
 };
